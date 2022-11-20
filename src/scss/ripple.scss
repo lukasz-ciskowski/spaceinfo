@@ -1,0 +1,44 @@
+@import "variables";
+
+%loading-skeleton {
+  color: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: $ripple-primary;
+  border-color: $ripple-primary;
+
+  &::placeholder {
+    color: transparent;
+  }
+}
+@keyframes loading-skeleton {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.loading-skeleton {
+  pointer-events: none;
+  animation: loading-skeleton 1.5s infinite alternate;
+
+  img {
+    filter: grayscale(100) contrast(0%) brightness(0.4);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  small,
+  li,
+  .btn,
+  label,
+  .skeleton-el,
+  .form-control {
+    @extend %loading-skeleton;
+  }
+}
