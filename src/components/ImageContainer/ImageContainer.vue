@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue';
+import { ref, toRef, toRefs, watchEffect } from 'vue';
 import { DateTime } from 'luxon';
 import { generateSkeletonText } from '@/utils/skeletonContent';
+import ReadMoreButton from '../ReadMoreButton/ReadMoreButton.vue';
+import { useReadMore } from '@/composables/useReadMore';
+import { useLoadImage } from '@/composables/useLoadImage';
 
 interface Props {
   loading: boolean;
@@ -16,25 +19,11 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   title: 'Untitled',
   description: 'No description provided',
+  author: 'unknown',
 });
 
-const shortenedDescription = ref('');
-const showFullDescription = ref(false);
-
-watchEffect(
-  () => {
-    if (props.description && props.description.length > 150) {
-      shortenedDescription.value = props.description.substring(0, 150);
-    }
-  },
-  {
-    onTrigger() {
-      return props.description;
-    },
-  },
-);
-
-const handleSwitchShowFullDescription = () => (showFullDescription.value = !showFullDescription.value);
+const [description, isFullDescription, handleShortenDescription] = useReadMore(toRef(props, 'description'));
+const loadingImage = useLoadImage(toRef(props, 'src'));
 </script>
 
 <template>
@@ -53,19 +42,20 @@ const handleSwitchShowFullDescription = () => (showFullDescription.value = !show
         </div>
       </div>
       <div v-else>
-        <img :src="props.src" class="card-img-top image-content" :alt="props.alt" />
+        <img
+          :src="props.src"
+          class="card-img-top image-content"
+          :class="{ 'loading': loadingImage }"
+          :alt="props.alt"
+        />
         <div class="card-body">
           <h5 class="card-title">{{ props.title }}</h5>
           <p class="card-text text-muted description">
-            <span v-if="!showFullDescription">{{ shortenedDescription }}...</span>
-            <span v-else>{{ props.description }}</span>
-            <a class="ms-3" role="button" @click="handleSwitchShowFullDescription">
-              <span v-if="!showFullDescription">Read more</span>
-              <span v-else>Read less</span>
-            </a>
+            <span>{{ description }}</span>
           </p>
+          <ReadMoreButton @toggle="handleShortenDescription" :toggled="isFullDescription" />
           <div class="text-end">
-            <span :v-show="!!props.author" class="mb-0">@{{ props.author }}</span>
+            <span class="mb-0">@{{ props.author }}</span>
             <br />
             <small class="text-muted" :v-show="!!props.date">
               {{ DateTime.fromJSDate(props.date!).toLocaleString(DateTime.DATE_MED) }}
@@ -78,7 +68,7 @@ const handleSwitchShowFullDescription = () => (showFullDescription.value = !show
 </template>
 
 <style scoped lang="scss">
-@import '@/scss/ripple';
+@import '@/scss/skeleton';
 .card-content {
   max-width: 900px;
   width: 100%;
@@ -89,6 +79,10 @@ const handleSwitchShowFullDescription = () => (showFullDescription.value = !show
     width: 100%;
     object-fit: cover;
     object-position: bottom;
+    &.loading {
+      background-color: $skeleton-primary;
+      animation: loading-skeleton 1.5s infinite alternate;
+    }
   }
 
   .loading-skeleton {
