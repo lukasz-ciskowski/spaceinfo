@@ -1,4 +1,4 @@
-import { APOD_URL, EARTH_URL } from '@/router/url';
+import { APOD_URL, SEARCH_URL } from '@/router/url';
 
 export const NAV = [
   {
@@ -7,8 +7,8 @@ export const NAV = [
     path: APOD_URL,
   },
   {
-    key: 'earth',
-    title: 'Earth',
-    path: EARTH_URL,
+    key: 'search',
+    title: 'Search',
+    path: SEARCH_URL,
   },
 ];

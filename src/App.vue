@@ -23,7 +23,7 @@ initParticles(tsParticles);
     <MainNavigation />
   </header>
 
-  <div class="container-lg px-md-5 pt-4 mb-5">
+  <div class="px-md-5 pt-4 mb-5">
     <RouterView />
   </div>
 </template>

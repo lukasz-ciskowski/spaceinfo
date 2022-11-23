@@ -8,6 +8,6 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-  <h2>{{ props.title }}</h2>
-  <span>{{ props.description }}</span>
+  <h2 class="text-center">{{ props.title }}</h2>
+  <p class="text-center">{{ props.description }}</p>
 </template>

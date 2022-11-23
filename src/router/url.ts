@@ -1,2 +1,2 @@
 export const APOD_URL = '/apod';
-export const EARTH_URL = '/earth';
+export const SEARCH_URL = '/search';

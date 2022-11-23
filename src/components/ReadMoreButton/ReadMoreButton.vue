@@ -13,7 +13,7 @@ const handleClick = () => emit('toggle');
 </script>
 
 <template>
-  <button @click="handleClick" class="btn btn-outline-primary">
+  <button type="button" @click="handleClick" class="btn btn-outline-primary">
     <span v-if="props.toggled">Read less</span>
     <span v-else>Read more</span>
   </button>
