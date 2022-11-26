@@ -1,10 +1,10 @@
 import APODPageVue from '@/pages/APODPage/APODPage.vue';
 import SearchPageVue from '@/pages/SearchPage/SearchPage.vue';
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import { APOD_URL, SEARCH_URL } from './url';
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     { path: '/', redirect: () => ({ path: APOD_URL }) },
     {

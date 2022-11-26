@@ -1,4 +1,4 @@
-# ![alt text](./src/assets/icons/logo.png)
+# ![logo](./src/assets/icons/logo.png)
 
 Spaceinfo is an application built with **Vue** for university project.
 It is the first approach to Vue based application using the free version of NASA API.
@@ -7,7 +7,9 @@ If you are interested in using the API please follow [this link](https://api.nas
 
 It uses two public endpoints: `APOD` and `NASA Image and Video Library`
 
-[link to demo](https://lukasz-ciskowski.github.io/spaceinfo)
+![screen](./docs/img/c1.PNG) 
+If you would like to test it here is [link to demo](https://lukasz-ciskowski.github.io/spaceinfo)
+
 
 ## Project
 
