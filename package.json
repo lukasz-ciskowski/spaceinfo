@@ -1,6 +1,7 @@
 {
   "name": "spaceinfo",
   "version": "0.0.0",
+  "homepage": "https://lukasz-ciskowski.github.io/spaceinfo",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
