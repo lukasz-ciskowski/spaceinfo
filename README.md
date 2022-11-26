@@ -1,46 +1,30 @@
-# spaceinfo
+# ![alt text](./src/assets/icons/logo.png)
 
-This template should help get you started developing with Vue 3 in Vite.
+Spaceinfo is an application built with **Vue** for university project.
+It is the first approach to Vue based application using the free version of NASA API.
 
-## Recommended IDE Setup
+If you are interested in using the API please follow [this link](https://api.nasa.gov/).
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+It uses two public endpoints: `APOD` and `NASA Image and Video Library`
 
-## Type Support for `.vue` Imports in TS
+[link to demo](https://lukasz-ciskowski.github.io/spaceinfo)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## Project
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+My approach was to use the latest API and structure proposed by Vite Team.
+This project was made using `Vue3` + `Vite` using `Typescript` and Composition API. 
+Additionally it has been built with `Bootstrap 5` and `scss`.
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## Instalation
 
-## Customize configuration
+In order to run Spaceinfo locally you need to follow these steps:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### Setup
 
-## Project Setup
+```bash
+# installing dependencies
+yarn / npm install
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
+# setup dev version
 npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```

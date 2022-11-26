@@ -2,7 +2,7 @@
 import { useNasaSearch } from '@/api/nasaSearch/useNasaSearch';
 import ImageContainer from '@/components/ImageContainer/ImageContainer.vue';
 import type { SingleSearchItem } from '@/api/nasaSearch/types';
-import { reactive, ref, toRef, toRefs } from 'vue';
+import { reactive, ref, toRefs } from 'vue';
 import { SEARCH_SKELETON_RESPONSE } from './skeletonData';
 
 const searchInput = ref<string>('');
@@ -42,7 +42,7 @@ const handleSubmit = () => {
       </h5>
     </div>
     <div v-if="isError" class="alert alert-danger" role="alert">Failed to get any search data!</div>
-    <div v-if="isSuccess" class="mt-4 result-content">
+    <div v-if="isSuccess || isLoading" class="mt-4 result-content">
       <masonry-wall
         :items="data?.collection.items || (isLoading ? SEARCH_SKELETON_RESPONSE() : [])"
         :column-width="350"
